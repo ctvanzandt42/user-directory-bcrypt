@@ -9,7 +9,6 @@ const MongoClient = mongo.MongoClient;
 const ObjectId = mongo.ObjectID;
 const port = 3000;
 const mustacheExpress = require('mustache-express');
-const data = require('./data');
 let DB;
 let Robots;
 
