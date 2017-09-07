@@ -10,18 +10,4 @@ indexRoutes.get("/", (req, res) => {
     });
 });
 
-indexRoutes.get("/forHire", (req, res) => {
-    Robot.find({ job: null }).toArray((err, forHireBots) => {
-        if (err) res.status(500).send(err);
-        res.render("home", { users: forHireBots });
-    });
-});
-
-indexRoutes.get("/employed", (req, res) => {
-    Robot.find({ job: { $ne: null } }).toArray((err, employedBots) => {
-        if (err) res.status(500).send(err);
-        res.render("home", { users: employedBots });
-    });
-});
-
 module.exports = indexRoutes;
