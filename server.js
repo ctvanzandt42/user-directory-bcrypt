@@ -1,12 +1,19 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const session = require('express-session');
+const sessionConfig = require('./sessionConfig');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const mongo = require('mongodb');
 const dbUrl = "mongodb://localhost:27017/robotData"
 const MongoClient = mongo.MongoClient;
 const ObjectId = mongo.ObjectID;
+const mongoose = require('mongoose');
+const bluebird = require('bluebird');
+const indexRoutes = require('./routes/indexRoutes');
+const profileRoutes = require('./routes/profileRoutes')
+const bcrypt = require('bcryptjs');
 const port = 3000;
 const mustacheExpress = require('mustache-express');
 let DB;
@@ -28,34 +35,18 @@ MongoClient.connect(dbUrl, (err, db) => {
     Robots = db.collection("robots");
 });
 
-app.get("/", (req, res) => {
-    Robots.find({}).toArray((err, foundRobots) => {
-        if (err) res.status(500).send(err);
-        res.render("home", { users: foundRobots });
-    });
-});
+mongoose.Promise = bluebird;
+mongoose.connect("mongodb://localhost:27017/robotData");
+
+app.use('/', indexRoutes);
+app.use('/profile', profileRoutes);
 
 
-app.get("/profile/:id", (req, res) => {
-    Robots.findOne({ _id: ObjectId(req.params.id) }, function (err, foundRobot) {
-        if (err) res.status(500).send(err);
-        res.render("profile", { data: foundRobot });
-    });
-});
 
-app.get("/forHire", (req, res) => {
-    Robots.find({ job: null }).toArray((err, forHireBots) => {
-        if (err) res.status(500).send(err);
-        res.render("home", { users: forHireBots });
-    });
-});
 
-app.get("/employed", (req, res) => {
-    Robots.find({ job: { $ne: null } }).toArray((err, employedBots) => {
-        if (err) res.status(500).send(err);
-        res.render("home", { users: employedBots });
-    });
-});
+
+
+
 
 app.listen(port, () => {
     console.log(`Welcome to port ${port}!`);
