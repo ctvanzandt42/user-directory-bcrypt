@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/main.css">
+     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    {{#robot}}
+    <div class="profile-container">
+        <div class="top-of-card">
+            <div class="profile-avatar">
+                <img src="{{avatar}}" alt="avatar">
+            </div>
+            <div class="top-info">
+                <h1>{{name}}</h1>
+                <p>{{address.city}}{{^address.city}}{{/address.city}}, {{address.country}} |{{^job}} Avaliable for hire {{/job}}
+                    {{job}}, {{^company}}{{/company}} {{company}}
+                    <br> {{email}} | {{phone}}</p>
+            </div>
+        </div>
+        <div class="bottom-of-card">
+            <div class="education">
+                <p><b>Education:</b> {{university}}</h5>
+            </div>
+            <div class="skills">
+                <p><b>Skills:</b> {{skills}}</p>
+            </div>
+
+
+            {{/robot}}
+
+    <form action="/user/edit/{{_id}}" method="post">
+        <label for="">Name </label><input type="text" name="name" required><br>
+        <label for="">Username </label><input type="text" name="username" required><br>
+        <label for="">Email </label><input type="email" name="email" required><br>
+        <label for="">Password </label><input type="password" name="password" required><br>
+        <label for="">Avatar </label><input type="text" name="avatar"><br>
+        <label for="">University </label><input type="text" name="university"><br>
+        <label for="">Job </label><input type="text" name="job"><br>
+        <label for="">Company </label><input type="text" name="company"><br>
+        <label for="">Skills </label><input type="text" name="skills" required><br>
+        <label for="">Phone </label><input type="text" name="phone" required><br>
+        <label for="">City </label><input type="text" name="address.city"><br>
+        <label for="">Country </label><input type="text" name="address.country" required><br>
+        <button type="submit">Edit!</button>
+    </form>
+</body>
+
+</html>

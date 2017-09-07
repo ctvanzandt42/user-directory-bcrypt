@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Sign up!</h1>
+        <form action="/auth/signup" method="post">
+            <label for="">Name</label>
+            <input type="text" name="name" required><br>
+            <label for="">Select a username</label>
+            <input type="text" name="username" required><br>
+            <label for="">Select a password</label>
+            <input type="password" name="password" required><br>
+            <label for="">What is your email address?</label>
+            <input type="email" name="email" required><br>
+            <label for="">Upload an avatar</label>
+            <input type="url" name="avatar"><br>
+            <label for="">Where did you go to school?</label>
+            <input type="text" name="university"><br>
+            <label for="">What skills do you have?</label>
+            <input type="text" name="skills" required><br>
+            <label for="">What is your phone number?</label>
+            <input type="number" name="phone" required><br>
+            <label for="">What city do you live in?</label>
+            <input type="text" name="address.city" required><br>
+            <label for="">What country do you live in?</label>
+            <input type="text" name="address.country" required><br>
+            <button type="submit">Submit!</button>
+        </form>
+    </div>
+</body>
+
+</html>

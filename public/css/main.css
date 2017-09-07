@@ -46,9 +46,16 @@ a {
     border-radius: 25%;
 }
 
-.subheader {
+.subheader-1 {
     display: flex;
-    flex-direction: row;
+    flex-direction: ;
+    justify-content: space-around;
+    margin-top: -20px;
+}
+
+.subheader-2 {
+    display: flex;
+    flex-direction: ;
     justify-content: space-around;
     margin-top: -20px;
 }
@@ -121,4 +128,30 @@ div.avatar {
     flex-direction: row;
     font-size: 20px;
     margin-left: -20px;
+}
+
+.wrapper {
+    background-color: black;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    flex-direction: column;
+    border-radius: 25%;
+}
+
+.wrapper-1 {
+    background-color: black;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    flex-direction: column;
+    border-radius: 25%;
 }

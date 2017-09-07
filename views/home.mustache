@@ -14,9 +14,15 @@
 <body>
     <h1 class="home-header" onclick="play('/media/sounds/shia-surprise.mp3')">Scroll Through These Sweet Users</h1>
     <div class="subheader">
-        <h2 class="home-subheader"><a href="/employment/forHire">Check out these available bots!</a></h2>
-        <h2 class="home-subheader"><a href="/">Home!</a></h2>
-        <h2 class="home-subheader"><a href="/employment/employed">Sorry, these bots have jobs!</a></h2>
+        <div class="subheader-1">
+            <h2 class="home-subheader"><a href="/employment/forHire">Check out these available bots!</a></h2>
+            <h2 class="home-subheader"><a href="/">Home!</a></h2>
+            <h2 class="home-subheader"><a href="/employment/employed">Sorry, these bots have jobs!</a></h2>
+        </div>
+        <div class="subheader-2">
+            <h2 class="home-subheader"><a href="/auth/signup">Sign up today!</a></h2>
+            <h2 class="home-subheader"><a href="/auth/login">Log in!</a></h2>
+        </div>
     </div>
     <div class="users">
         {{#robots}}
